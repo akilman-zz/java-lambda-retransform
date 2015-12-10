@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes("Premain-Class": "JavaAgent")
+        attributes("Can-Redefine-Classes": "true")
+        attributes("Can-Retransform-Classes": "true")
+    }
+}
