@@ -9,6 +9,6 @@ public class LambdaTransformer implements ClassFileTransformer {
     throws IllegalClassFormatException {
 
         System.out.println("yo class transformer, what up! " + className);
-        return new byte[0];
+        return null;
     }
 }
