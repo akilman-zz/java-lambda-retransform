@@ -1,7 +1,34 @@
 apply plugin: 'java'
 
-jar {
+task anonymousCallSiteJar(type: Jar, dependsOn: 'compileJava') {
+
+    from files(sourceSets.main.output.classesDir)
+
     manifest {
-        attributes 'Main-Class': 'App'
+        attributes 'Main-Class': 'AnonymousCallSiteApp'
     }
+
+    baseName = 'anonymousCallSite'
+}
+
+task instanceMethodCallSiteJar(type: Jar, dependsOn: 'compileJava') {
+
+    from files(sourceSets.main.output.classesDir)
+
+    manifest {
+        attributes 'Main-Class': 'InstanceMethodCallSiteApp'
+    }
+
+    baseName = 'instanceMethodCallSite'
+}
+
+task staticMethodCallSiteAppJar(type: Jar, dependsOn: 'compileJava') {
+
+    from files(sourceSets.main.output.classesDir)
+
+    manifest {
+        attributes 'Main-Class': 'StaticMethodCallSiteApp'
+    }
+
+    baseName = 'staticMethodCallSiteApp'
 }
